@@ -115,6 +115,14 @@ nlu:
     - i am tired
     - i feel exhausted
 
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - do you understand me at all?
+
 - intent: tell_name
   examples: |
     - I am [Marco](PERS)
@@ -133,10 +141,4 @@ nlu:
     - [Tim](PERS)
     - [John](PERS)    
 
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
-    - do you understand me at all?
+
