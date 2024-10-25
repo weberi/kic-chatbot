@@ -115,6 +115,24 @@ nlu:
     - i am tired
     - i feel exhausted
 
+- intent: tell_name
+  examples: |
+    - I am [Marco](PERS)
+    - Call me [Patrick](PERS)
+    - It's [Aline](PERS)
+    - I'm [Irene](PERS)
+    - My name is [Marco](PERS)
+    - People call me [Marco](PERS)
+    - I am called [Donald](PERS)
+    - [Jennifer](PERS)
+    - They call me [Eugene](PERS)
+    - Call me [Max](PERS)
+    - My friends call me [Winni](PERS)
+    - [Hanna](PERS)
+    - [Sarah](PERS)
+    - [Tim](PERS)
+    - [John](PERS)    
+
 - intent: bot_challenge
   examples: |
     - are you a bot?
