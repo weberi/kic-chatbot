@@ -2,14 +2,14 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: "happy path"
   steps:
   - intent: greet
   - action: utter_greet
   - intent: mood_great
   - action: utter_happy
 
-- story: sad path 1
+- story: "sad path 1"
   steps:
   - intent: greet
   - action: utter_greet
@@ -19,7 +19,7 @@ stories:
   - intent: affirm
   - action: utter_happy
 
-- story: sad path 2
+- story: "sad path 2"
   steps:
   - intent: greet
   - action: utter_greet

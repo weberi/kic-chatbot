@@ -82,22 +82,6 @@ nlu:
     - extremly sad
     - so saad
     - so sad
-<<<<<<< HEAD
-
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
-=======
-    - not so good
-    - not that good
-    - not too good
-    - it could be better
-    - a bit depressed
-    - i am tired
-    - i feel exhausted
 
 - intent: bot_challenge
   examples: |
@@ -109,21 +93,21 @@ nlu:
 
 - intent: tell_name
   examples: |
-    - I am [Marco](PERS)
-    - Call me [Patrick](PERS)
-    - It's [Aline](PERS)
-    - I'm [Irene](PERS)
-    - My name is [Marco](PERS)
-    - People call me [Marco](PERS)
-    - I am called [Donald](PERS)
-    - [Jennifer](PERS)
-    - They call me [Eugene](PERS)
-    - Call me [Max](PERS)
-    - My friends call me [Winni](PERS)
-    - [Hanna](PERS)
-    - [Sarah](PERS)
-    - [Tim](PERS)
-    - [John](PERS)    
+    - I am [Marco](name)
+    - Call me [Patrick](name)
+    - It's [Aline](name)
+    - I'm [Irene](name)
+    - My name is [Marco](name)
+    - People call me [Marco](name)
+    - I am called [Donald](name)
+    - [Jennifer](name)
+    - They call me [Eugene](name)
+    - Call me [Max](name)
+    - My friends call me [Winni](name)
+    - [Hanna](name)
+    - [Sarah](name)
+    - [Tim](name)
+    - [John](name)    
 
 
->>>>>>> 7d2fb6b (Update nlu.yml)
+
