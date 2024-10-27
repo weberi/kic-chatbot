@@ -678,7 +678,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "https://api.openweathermap.org/data/2.5/weather?q={{slots.location}}&appid=2d700009fe0e1503255bea6aa4af3b13&units=metric",
+        "template": "https://api.openweathermap.org/data/2.5/weather?q={{slots.location}}&appid=API-KEY HERE&units=metric",
         "output": "str",
         "x": 240,
         "y": 120,
@@ -794,8 +794,8 @@
         "syntax": "mustache",
         "template": "https://openweathermap.org/img/wn/{{payload.weather.0.icon}}@2x.png",
         "output": "str",
-        "x": 180,
-        "y": 180,
+        "x": 740,
+        "y": 120,
         "wires": [
             [
                 "509b633bdffb9c0e"
