@@ -703,7 +703,7 @@
         "y": 120,
         "wires": [
             [
-                "7d3c61cb05c6740d"
+                "509b633bdffb9c0e"
             ]
         ]
     },
@@ -770,13 +770,13 @@
         "positionType": "num",
         "text": "payload.text",
         "textType": "msg",
-        "image": "payload.image",
-        "imageType": "msg",
+        "image": "https://openweathermap.org/img/wn/{{payload.weather.0.icon}}@2x.png",
+        "imageType": "str",
         "attachment": "",
         "attachmentType": "str",
         "senderr": false,
-        "x": 480,
-        "y": 260,
+        "x": 460,
+        "y": 180,
         "wires": [
             [
                 "afdff720c12f09b4"
@@ -792,32 +792,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "image",
+        "complete": "https://openweathermap.org/img/wn/{{payload.weather.0.icon}}@2x.png",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 620,
         "y": 420,
         "wires": []
-    },
-    {
-        "id": "7d3c61cb05c6740d",
-        "type": "template",
-        "z": "03e91b91ae2dd78a",
-        "name": "",
-        "field": "payload.image",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "https://openweathermap.org/img/wn/{{payload.weather.0.icon}}@2x.png",
-        "output": "str",
-        "x": 180,
-        "y": 220,
-        "wires": [
-            [
-                "509b633bdffb9c0e",
-                "9587bcbfeb2ed19d"
-            ]
-        ]
     }
 ]
