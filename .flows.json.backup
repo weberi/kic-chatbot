@@ -23,6 +23,21 @@
         "info": ""
     },
     {
+        "id": "7b59074ed1a3f1d6",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "742315f5.67d93c",
+        "type": "tab",
+        "label": "openweather",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "962e20b1df6e5746",
         "type": "http in",
         "z": "95526930634809d4",
@@ -678,7 +693,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "https://api.openweathermap.org/data/2.5/weather?q={{slots.location}}&appid=API-KEY HERE&units=metric",
+        "template": "https://api.openweathermap.org/data/2.5/weather?q={{slots.location}}&appid=<apikey>&units=metric",
         "output": "str",
         "x": 240,
         "y": 120,
@@ -731,8 +746,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 770,
-        "y": 180,
+        "x": 530,
+        "y": 260,
         "wires": []
     },
     {
@@ -753,8 +768,8 @@
         "type": "finish",
         "z": "03e91b91ae2dd78a",
         "name": "",
-        "x": 610,
-        "y": 180,
+        "x": 390,
+        "y": 260,
         "wires": [
             [
                 "14ef588d4a65fd43"
@@ -770,13 +785,13 @@
         "positionType": "num",
         "text": "payload.text",
         "textType": "msg",
-        "image": "payload.image",
+        "image": "payload.weathericon",
         "imageType": "msg",
         "attachment": "",
         "attachmentType": "str",
         "senderr": false,
-        "x": 460,
-        "y": 180,
+        "x": 240,
+        "y": 260,
         "wires": [
             [
                 "afdff720c12f09b4"
@@ -788,18 +803,244 @@
         "type": "template",
         "z": "03e91b91ae2dd78a",
         "name": "",
-        "field": "payload.image",
+        "field": "payload.weathericon",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
         "template": "https://openweathermap.org/img/wn/{{payload.weather.0.icon}}@2x.png",
         "output": "str",
-        "x": 180,
+        "x": 240,
         "y": 180,
         "wires": [
             [
-                "509b633bdffb9c0e"
+                "509b633bdffb9c0e",
+                "cdc43d0ec1c8c399"
             ]
         ]
+    },
+    {
+        "id": "cdc43d0ec1c8c399",
+        "type": "debug",
+        "z": "03e91b91ae2dd78a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.image",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "b94ec28435d6e2fd",
+        "type": "inject",
+        "z": "7b59074ed1a3f1d6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 80,
+        "wires": [
+            [
+                "0a7fc93734744eec"
+            ]
+        ]
+    },
+    {
+        "id": "0a7fc93734744eec",
+        "type": "http request",
+        "z": "7b59074ed1a3f1d6",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://api.zippopotam.us/de/by/kempten",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 330,
+        "y": 80,
+        "wires": [
+            [
+                "25676d471b78c1c5"
+            ]
+        ]
+    },
+    {
+        "id": "53ad18586ca1fac1",
+        "type": "debug",
+        "z": "7b59074ed1a3f1d6",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.Land",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "25676d471b78c1c5",
+        "type": "template",
+        "z": "7b59074ed1a3f1d6",
+        "name": "",
+        "field": "payload.Land",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.places.0.post code}}\n",
+        "output": "str",
+        "x": 500,
+        "y": 80,
+        "wires": [
+            [
+                "53ad18586ca1fac1"
+            ]
+        ]
+    },
+    {
+        "id": "47e02a07.d1a224",
+        "type": "inject",
+        "z": "742315f5.67d93c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.location",
+                "v": "Paris",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 120,
+        "y": 40,
+        "wires": [
+            [
+                "af6e9534.40a508"
+            ]
+        ]
+    },
+    {
+        "id": "c5a09e0c.9b3db8",
+        "type": "http request",
+        "z": "742315f5.67d93c",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 210,
+        "y": 120,
+        "wires": [
+            [
+                "6cdafd20.7d95c4",
+                "52af517b.96296"
+            ]
+        ]
+    },
+    {
+        "id": "81fdb67c.151b08",
+        "type": "debug",
+        "z": "742315f5.67d93c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "af6e9534.40a508",
+        "type": "template",
+        "z": "742315f5.67d93c",
+        "name": "",
+        "field": "url",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "https://api.openweathermap.org/data/2.5/weather?q={{payload.location}}&appid=2d700009fe0e1503255bea6aa4af3b13&units=metric",
+        "output": "str",
+        "x": 260,
+        "y": 40,
+        "wires": [
+            [
+                "c5a09e0c.9b3db8"
+            ]
+        ]
+    },
+    {
+        "id": "6cdafd20.7d95c4",
+        "type": "template",
+        "z": "742315f5.67d93c",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "It is {{payload.weather.0.description}} in {{payload.name}} at the moment. The wind speed is {{payload.wind.speed}} meter/sec and the humidity is {{payload.main.humidity}}%. The temperature is {{payload.main.temp}}°C.",
+        "output": "str",
+        "x": 400,
+        "y": 120,
+        "wires": [
+            [
+                "81fdb67c.151b08"
+            ]
+        ]
+    },
+    {
+        "id": "52af517b.96296",
+        "type": "debug",
+        "z": "742315f5.67d93c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 200,
+        "wires": []
     }
 ]
