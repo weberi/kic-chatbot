@@ -678,7 +678,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "https://api.openweathermap.org/data/2.5/weather?q={{slots.location}}&appid=API-KEY HERE&units=metric",
+        "template": "https://api.openweathermap.org/data/2.5/weather?q={{slots.location}}&appid=apikey&units=metric",
         "output": "str",
         "x": 240,
         "y": 120,
@@ -788,7 +788,7 @@
         "type": "template",
         "z": "03e91b91ae2dd78a",
         "name": "",
-        "field": "payload.image",
+        "field": "payload.image.openweathermap",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
@@ -798,8 +798,45 @@
         "y": 120,
         "wires": [
             [
-                "509b633bdffb9c0e"
+                "995b68116fd717ea"
             ]
         ]
+    },
+    {
+        "id": "995b68116fd717ea",
+        "type": "template",
+        "z": "03e91b91ae2dd78a",
+        "name": "",
+        "field": "payload.image",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "https://raw.githubusercontent.com/weberi/weather-icons-lite/refs/heads/master/images/{{payload.weather.0.icon}}.jpg\n\n",
+        "output": "str",
+        "x": 200,
+        "y": 220,
+        "wires": [
+            [
+                "509b633bdffb9c0e",
+                "cdc43d0ec1c8c399"
+            ]
+        ]
+    },
+    {
+        "id": "cdc43d0ec1c8c399",
+        "type": "debug",
+        "z": "03e91b91ae2dd78a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.image",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 340,
+        "wires": []
     }
 ]
