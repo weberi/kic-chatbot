@@ -1,0 +1,26 @@
+version: "3.1"
+stories:
+  - story: "Hallo"
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - story: "Tschuess"
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: "Zeit"
+    steps:
+      - intent: ask_hours
+      - action: utter_ask_hours
+
+  - story: "Standort"
+    steps:
+      - intent: ask_location
+      - action: utter_ask_location
+
+  - story: "Kontakt"
+    steps:
+      - intent: ask_contact
+      - action: utter_ask_contact

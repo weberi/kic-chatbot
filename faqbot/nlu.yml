@@ -1,0 +1,44 @@
+version: "3.1"
+nlu:
+  - intent: greet
+    examples: |
+      - Hallo
+      - Hi
+      - Hey
+      - Guten Tag
+      - Hallo, wie geht's?
+      - Guten Morgen
+      - Hi, wie geht es dir?
+
+  - intent: goodbye
+    examples: |
+      - Tschüss
+      - Bis bald
+      - Auf Wiedersehen
+      - Mach's gut
+      - Ciao
+      - Bis später
+
+  - intent: ask_hours
+    examples: |
+      - Wie sind eure Öffnungszeiten?
+      - Wann seid ihr geöffnet?
+      - Ab wann kann ich euch erreichen?
+      - Was sind eure Bürozeiten?
+      - Öffnet ihr am Wochenende?
+
+  - intent: ask_location
+    examples: |
+      - Wo befindet ihr euch?
+      - Wo ist euer Büro?
+      - Wo kann ich euch finden?
+      - Wie lautet eure Adresse?
+      - In welchem Stadtteil seid ihr?
+
+  - intent: ask_contact
+    examples: |
+      - Wie kann ich euch kontaktieren?
+      - Habt ihr eine Telefonnummer?
+      - Wie lautet eure E-Mail-Adresse?
+      - Wie erreiche ich den Support?
+      - Wie kann ich euch erreichen?
